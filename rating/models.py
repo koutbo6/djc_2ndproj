@@ -1,4 +1,7 @@
 from django.db import models
+# Recommended way to get get
+# the User Model
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 class Product(models.Model):
@@ -15,9 +18,12 @@ class Product(models.Model):
     # use it for descriptions and when you do not
     # need to search the field
     description = models.TextField("product description",blank=True)
+    # Product could have multiple users
+    users = models.ManyToManyField(get_user_model())
 
     def __unicode__(self):
         return u"%s (%s)" % (self.name, self.category)
+
 
 class Rating(models.Model):
     # This established a one to many relationship between
@@ -39,3 +45,13 @@ class Rating(models.Model):
     # auto_now means update the field to now
     # everytime it is saved
     updated_at = models.DateTimeField("last updated", auto_now_add=True, auto_now=True)
+    # rating is associated with a single user
+    reviewer = models.ForeignKey(get_user_model())
+
+
+class UserProfile(models.Model):
+    # every user has a single profile
+    user = models.OneToOneField(get_user_model())
+    location = models.CharField(max_length=64, blank=True)
+    bio = models.TextField(blank=True)
+
