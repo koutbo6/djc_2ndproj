@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<ul class="list-group">
+{% for p in products %}
+    <li class="list-group-item">
+        <p>
+        <a href="{% url 'product_details' p.pk %}">{{ p.name }}</a> by {{ p.submitter }} <a href="{%url 'product_rate' p.pk %}">rate</a> score (annotate): {{ p.score }}, score (aggregate): {{ p.get_rating_score }}
+        </p>
+    </li>
+
+{% empty %}
+<li>
+    <h2>
+    No Products Submitted Yet
+    </h2>
+</li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}
