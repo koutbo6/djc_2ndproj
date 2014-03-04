@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.translation import ugettext as _
 
 from .models import  Product, Rating
 from .forms import ProductForm, RatingForm
@@ -9,7 +10,14 @@ from django.forms.formsets import formset_factory
 def product_list(request):
     # construct a queryset
     qs = Product.objects.products_with_score().select_related('submitter')
-    return render(request, "rating/product_list.html", {"products":qs})
+    return render(
+        request,
+        "rating/product_list.html",
+        {
+            "products":qs,
+            "heading": _(u"Complete product list")
+        },
+    )
 
 def product_details(request, pid):
     obj = get_object_or_404(Product, pk=pid)

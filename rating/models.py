@@ -2,7 +2,7 @@ from django.db import models
 # Recommended way to get get
 # the User Model
 from django.contrib.auth import get_user_model
-
+from django.utils.translation import ugettext_lazy as _
 
 class ProductRatingManager(models.Manager):
     def products_with_score(self):
@@ -11,10 +11,10 @@ class ProductRatingManager(models.Manager):
 # Create your models here.
 class Product(models.Model):
     CATEGORY_CHOICE = (
-        (u"car", u"Cars"),
-        (u"swt", u"Sweets"),
-        (u"gms", u"Games"),
-        (u"jet", u"Jet Planes"),
+        (u"car", _(u"Cars")),
+        (u"swt", _(u"Sweets")),
+        (u"gms", _(u"Games")),
+        (u"jet", _(u"Jet Planes")),
     )
 
 

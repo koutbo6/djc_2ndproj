@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>{{ product.name }}</h2>
-<h3>Category: {{ product.category }}</h3>
-<h3>Rating: {{ product.get_rating_score }}</h3>
+
+{% blocktrans with product_name=product.name product_category=product.category product_get_rating_score=product.get_rating_score %}
+<h2>{{ product_name }}</h2>
+<h3>Category: {{ product_category }}</h3>
+<h3>Rating: {{ product_get_rating_score }}</h3>
+{% endblocktrans %}
 
 <p>
 {{ product.description }}

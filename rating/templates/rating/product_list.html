@@ -14,7 +14,7 @@
 {% empty %}
 <li>
     <h2>
-    No Products Submitted Yet
+    {% trans "No Products Submitted Yet" %}
     </h2>
 </li>
 
@@ -22,3 +22,9 @@
 </ul>
 
 {% endblock %}
+
+{% blocktrans with amount=article.price count years=i.length %}
+That will cost $ {{ amount }} per year.
+{% plural %}
+That will cost $ {{ amount }} per {{ years }} years.
+{% endblocktrans %}
