@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-04 19:34+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:14
+msgid "Cars"
+msgstr ""
+
+#: models.py:15
+msgid "Sweets"
+msgstr ""
+
+#: models.py:16
+msgid "Games"
+msgstr ""
+
+#: models.py:17
+msgid "Jet Planes"
+msgstr ""
+
+#: views.py:18
+msgid "Complete product list"
+msgstr ""
+
+#: templates/rating/product_detail.html:5
+#, python-format
+msgid ""
+"\n"
+"<h2>%(product_name)s</h2>\n"
+"<h3>Category: %(product_category)s</h3>\n"
+"<h3>Rating: %(product_get_rating_score)s</h3>\n"
+msgstr ""
+
+#: templates/rating/product_list.html:17
+msgid "No Products Submitted Yet"
+msgstr ""
+
+#: templates/rating/product_list.html:26
+#, python-format
+msgid ""
+"\n"
+"That will cost $ %(amount)s per year.\n"
+msgid_plural ""
+"\n"
+"That will cost $ %(amount)s per %(years)s years.\n"
+msgstr[0] ""
+msgstr[1] ""

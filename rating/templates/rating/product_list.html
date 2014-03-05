@@ -23,8 +23,3 @@
 
 {% endblock %}
 
-{% blocktrans with amount=article.price count years=i.length %}
-That will cost $ {{ amount }} per year.
-{% plural %}
-That will cost $ {{ amount }} per {{ years }} years.
-{% endblocktrans %}
