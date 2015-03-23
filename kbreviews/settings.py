@@ -42,9 +42,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
-    'django_extensions',
+    # 'debug_toolbar',
+    # 'django_extensions',
     'rating',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -65,18 +69,18 @@ WSGI_APPLICATION = 'kbreviews.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kbreview',      # database you have created                
-        'USER': 'koutbo6',  # db username (replace with yours)
-        'PASSWORD': '',     # db password if any
-        'HOST': 'localhost', # db host
-        # 'ATOMIC_REQUEST': True,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'kbreview',      # database you have created
+    #     'USER': 'koutbo6',  # db username (replace with yours)
+    #     'PASSWORD': '',     # db password if any
+    #     'HOST': 'localhost', # db host
+    #     # 'ATOMIC_REQUEST': True,
+    # }
 }
 
 # Internationalization
@@ -97,3 +101,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
+)
+
+SITE_ID = 1
