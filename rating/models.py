@@ -3,7 +3,6 @@ from django.db import models
 
 
 class ProductRatingManager(models.Manager):
-
     def products_with_score(self):
         return self.get_queryset().annotate(score=models.Avg("rating__score"))
 

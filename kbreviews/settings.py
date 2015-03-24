@@ -115,3 +115,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 SITE_ID = 1
+# to prevent sending out email for confirming user email
+# change to "optional" or "mandatory" if you need it
+# but you have to find out how to configure email settings
+ACCOUNT_EMAIL_VERIFICATION = "none"
